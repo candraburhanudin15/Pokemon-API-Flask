@@ -1,0 +1,13 @@
+mysqlclient
+MySQL-python
+mysql-connector-python
+flask
+Flask-SQLAlchemy
+flask-restful
+Flask-Migrate
+requests
+python-dotenv
+flask-cors
+flask-sieve
+pymysql
+Flask-script
