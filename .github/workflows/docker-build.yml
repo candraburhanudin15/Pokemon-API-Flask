@@ -19,7 +19,7 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker image
+      - name: Build and Push Docker Images
         run: |
-          docker build -t candraburhanudin15/pokecanov:latest .
-          docker push candraburhanudin15/pokecanov:latest
+          docker build -t yourusername/yourimage:tag .
+          docker push yourusername/yourimage:tag
