@@ -34,9 +34,15 @@ export default async function PokemonPage({params}: { params: { pokemonName: str
                 {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
                 </CardTitle>
                 <CardTitle>
-                <Badge variant="destructive">
-                    Type: {pokemonObject.types[0].type.name}
-                </Badge>{" "}
+                    {pokemonObject.types[0] ? (
+                    <Badge variant="destructive">
+                        Type: {pokemonObject.types[0].type.name}
+                    </Badge>
+                ) : (
+                    <Badge variant="destructive">
+                        Type: Not Available
+                    </Badge>
+                    )}
                 </CardTitle>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {/* Kolom Kiri */}

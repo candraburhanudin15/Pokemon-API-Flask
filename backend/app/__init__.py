@@ -11,7 +11,7 @@ from .apis.student import studentApp
 from .apis.pokemon import pokemonApp
 
 # Create package object.
-db = SQLAlchemy()
+# db = SQLAlchemy()
 api = Api()
 sieve = Sieve()
 
@@ -45,7 +45,7 @@ def init_app(name, config=None):
     )
     app = Flask(name)
     app.config.from_object(config)
-    db.init_app(app)
+    # db.init_app(app)
     api.init_app(app)
     CORS(app)
     sieve.init_app(app)
