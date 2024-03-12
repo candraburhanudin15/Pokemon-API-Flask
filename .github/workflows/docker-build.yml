@@ -19,18 +19,20 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker image - Frontend
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: frontend/Dockerfile
-          push: true
-          tags : candraburhanudin15/pokecanov:latest
+      - name: Build and push Docker image with Dockerfile1
+        uses: docker/build-push-action@v4
+        with: 
+          context: ./frontend
+          dockerfile: dockerfile
+          push: true 
+          tags: candraburhanudin15/pokecanov:latest
+        
 
-      - name: Build and push Docker image - Backend
-        uses: docker/build-push-action@v3
-        with:
-          context: .
-          file: backend/Dockerfile
-          push: true
-          tags : candraburhanudin15/pokecanov:latest
+      - name: Build and push Docker image with Dockerfile1
+        uses: docker/build-push-action@v4
+        with: 
+          context: ./backend
+          dockerfile: dockerfile
+          push: true 
+          tags: candraburhanudin15/pokecanov:latest
+          
