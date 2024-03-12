@@ -1,4 +1,4 @@
-name: Build and Push Docker Image to Docker Hub
+name: Docker Publish
 
 on:
   push:
@@ -6,33 +6,28 @@ on:
       - dev
 
 jobs:
-  build-and-push:
+  publish:
+    name: Publish Docker images
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout repository
-        uses: actions/checkout@v3
+    - name: Checkout repository
+      uses: actions/checkout@v2
 
-      - name: Login to Docker Hub
-        uses: docker/login-action@v2
-        with:
-          username: ${{ secrets.DOCKERHUB_USERNAME }}
-          password: ${{ secrets.DOCKERHUB_TOKEN }}
+    - name: Login to Docker Hub
+      uses: docker/login-action@v1
+      with:
+        username: ${{ secrets.DOCKER_USERNAME }}
+        password: ${{ secrets.DOCKER_PASSWORD }}
 
-      - name: Build and push Docker image with Dockerfile1
-        uses: docker/build-push-action@v4
-        with: 
-          context: ./frontend
-          dockerfile: dockerfile
-          push: true 
-          tags: candraburhanudin15/pokecanov:latest
-        
+    - name: Build and push Next.js Docker image
+      working-directory: ./frontend
+      run: |
+        docker build -t candraburhanudin15/pokecanov:1.0.0 -f next.dockerfile .
+        docker push candraburhanudin15/pokecanov:1.0.0
 
-      - name: Build and push Docker image with Dockerfile1
-        uses: docker/build-push-action@v4
-        with: 
-          context: ./backend
-          dockerfile: dockerfile
-          push: true 
-          tags: candraburhanudin15/pokecanov:latest
-          
+    - name: Build and push Flask Docker image
+      working-directory: ./backend
+      run: |
+        docker build -t candraburhanudin15/pokecanov:1.0.0 -f flask.dockerfile .
+        docker push candraburhanudin15/pokecanov:1.0.0
