@@ -150,13 +150,13 @@ export default async function PokemonPage({params}: { params: { pokemonName: str
                         <h2 className="mb-4">Sample Dub 1</h2>
                         <audio className=""controls>
                             <source src={pokemonObject.cries.latest} type="audio/ogg" />
-                            Your browser does not support the audio element.
+                            Browser anda tidak menudukung pemutaran audio.
                         </audio>
 
                         <h2 className="mb-4">Sample Dub 2</h2>
                         <audio controls>
                             <source src={pokemonObject.cries.legacy} type="audio/ogg" />
-                            Your browser does not support the audio element.
+                            Browser anda tidak menudukung pemutaran audio.
                         </audio>
                     </div>
                     <div>
