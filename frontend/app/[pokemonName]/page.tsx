@@ -13,10 +13,6 @@ import {
   } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
-// pokemonName
-
-// pokemonName = "pikachu" -> show detail pikachu page
-
 export default async function PokemonPage({params}: { params: { pokemonName: string}}) {
     //object destructuring
     const { pokemonName } = params;
