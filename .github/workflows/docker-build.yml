@@ -20,10 +20,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build and push Docker image
-        uses: docker/build-push-action@v4
-        with:
-          context: . # Pastikan Dockerfile dan docker-compose.yml ada di direktori yang benar
-          file: docker-compose.yml # Gunakan docker-compose.yml sebagai file konfigurasi
-          push: true 
-          tags: candraburhanudin15/pokecanov:latest
-        
+        run: |
+          docker build -t candraburhanudin15/pokecanov:latest .
+          docker push candraburhanudin15/pokecanov:latest
