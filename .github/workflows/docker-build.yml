@@ -19,7 +19,18 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and Push Docker Images
-        run: |
-          docker build -t yourusername/yourimage:tag .
-          docker push yourusername/yourimage:tag
+      - name: Build and push Docker image - Frontend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./frontend
+          file: ./frontend/Dockerfile
+          push: true
+          tags : candraburhanudin15/pokecanov:latest
+
+      - name: Build and push Docker image - Backend
+        uses: docker/build-push-action@v3
+        with:
+          context: ./backend
+          file: ./backend/Dockerfile
+          push: true
+          tags : candraburhanudin15/pokecanov:latest
