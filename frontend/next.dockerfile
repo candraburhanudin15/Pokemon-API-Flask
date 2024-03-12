@@ -13,5 +13,7 @@ RUN npm install
 # Menyalin seluruh kode sumber ke dalam container
 COPY . .
 
+EXPOSE 3000
+
 # Menjalankan aplikasi Next.js
 CMD ["npm", "start"]
