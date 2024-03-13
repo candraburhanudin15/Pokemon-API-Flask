@@ -28,11 +28,11 @@ jobs:
     - name: Build and push Next.js Docker image
       working-directory: ./frontend
       run: |
-        docker build -t candraburhanudin15/pokecanovfrontend:latest -f frontend/next.dockerfile .
+        docker build -t candraburhanudin15/pokecanovfrontend:latest -f next.dockerfile .
         docker push candraburhanudin15/pokecanovfrontend:latest
 
     - name: Build and push Flask Docker image
       working-directory: ./backend
       run: |
-        docker build -t candraburhanudin15/pokecanov:1.0.0 -f backend/flask.dockerfile .
+        docker build -t candraburhanudin15/pokecanov:1.0.0 -f flask.dockerfile .
         docker push candraburhanudin15/pokecanov:1.0.0
