@@ -6,6 +6,18 @@ metadata:
 apiVersion: v1
 kind: Service
 metadata:
+  name: pokecanov-frontend-svc
+  namespace: pokecanov-develop
+spec:
+  ports:
+  - port: 80
+    targetPort: 3000
+  selector:
+    app: pokecanov-frontend
+---
+apiVersion: v1
+kind: Service
+metadata:
   name: pokecanov-svc
   namespace: pokecanov-develop
 spec:
@@ -43,6 +55,34 @@ spec:
             cpu: 1m
             memory: 1Mi
 ---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: pokecanov-frontend
+  namespace: pokecanov-develop
+spec:
+  selector:
+    matchLabels:
+      app: pokecanov-frontend
+  template:
+    metadata:
+      labels:
+        app: pokecanov-frontend
+    spec:
+      containers:
+      - image: candraburhanudin15/pokecanovfrontend:latest
+        imagePullPolicy: Always
+        name: pokecanov-frontend
+        ports:
+        - containerPort: 3000
+        resources:
+          limits:
+            cpu: 500m
+            memory: 500Mi
+          requests:
+            cpu: 1m
+            memory: 1Mi
+---
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
@@ -57,6 +97,16 @@ spec:
       - backend:
           service:
             name: pokecanov-svc
+            port:
+              number: 80
+        path: /
+        pathType: Prefix
+  - host: pokecanovfrontend.shamirhusein.my.id
+    http:
+      paths:
+      - backend:
+          service:
+            name: pokecanov-frontend-svc
             port:
               number: 80
         path: /

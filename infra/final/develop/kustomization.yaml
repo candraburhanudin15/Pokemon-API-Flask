@@ -6,3 +6,4 @@ bases:
 resources:
   - "../../service/config/overlays/develop"
   - "../../service/pokecanov/overlays/develop"
+  - "../../service/pokecanov-frontend/overlays/develop"

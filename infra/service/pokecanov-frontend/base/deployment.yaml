@@ -1,19 +1,19 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: backend-flask
+  name: pokecanov-frontend
 spec:
   selector:
     matchLabels:
-      app: pokecanov_frontend
+      app: pokecanov-frontend
   template:
     metadata:
       labels:
-        app: pokecanov_frontend
+        app: pokecanov-frontend
     spec:
       containers:
-      - name: pokecanov_frontend
-        image: candraburhanudin15/pokecanov:1.0.0
+      - name: pokecanov-frontend
+        image: candraburhanudin15/pokecanovfrontend:latest
         imagePullPolicy: Always
         resources:
           requests:
@@ -23,7 +23,7 @@ spec:
             memory: "500Mi"
             cpu: "500m"
         ports:
-        - containerPort: 8000                           
+        - containerPort: 3000                           
         # livenessProbe:                            
         #   httpGet:
         #     path: "/v1/ping"
@@ -42,10 +42,10 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: pokecanov-svc
+  name: pokecanov-frontend-svc
 spec:
   selector:
-    app: pokecanov
+    app: pokecanov-frontend
   ports:
   - port: 80
-    targetPort: 8000
+    targetPort: 3000

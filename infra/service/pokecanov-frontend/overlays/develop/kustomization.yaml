@@ -6,8 +6,8 @@ resources:
   # - "configmap.yaml"
   # - "sealed-secret.yaml"
 images:
-  - name: candraburhanudin15/pokecanov
-    newTag: 1.0.0
+  - name: candraburhanudin15/pokecanovfrontend
+    newTag: latest
 # patchesJson6902:
 #   - target:
 #       group: apps

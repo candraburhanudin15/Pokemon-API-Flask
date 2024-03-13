@@ -14,4 +14,14 @@ spec:
             name: pokecanov-svc
             port: 
               number: 80
+  - host: pokecanovfrontend.shamirhusein.my.id
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: pokecanov-frontend-svc
+            port: 
+              number: 80
   ingressClassName: nginx
