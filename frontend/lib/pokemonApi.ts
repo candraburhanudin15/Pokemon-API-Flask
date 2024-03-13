@@ -1,4 +1,4 @@
-const POKEMON_API = "http://127.0.0.1:8000/pokemon/poke";
+const POKEMON_API = "https://pokecanov.shamirhusein.my.id/pokemon/poke";
 export async function getPokemonList() {
     try {
         const response = await fetch(POKEMON_API);
