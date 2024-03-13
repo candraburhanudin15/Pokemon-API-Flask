@@ -20,4 +20,3 @@ _black_version.py
 .dmypy.json
 *.pyc
 newrelic*.ini
-infra
