@@ -33,7 +33,7 @@ def after_request(response):
 #landing page
 @app.route("/")
 def index():
-    response = requests.get("http://127.0.0.1:8000/pokemon/poke")
+    response = requests.get("http://localhost:8000/pokemon/poke")
     if response.status_code == 200:
         data = response.json()
         # Ambil daftar nama Pokemon

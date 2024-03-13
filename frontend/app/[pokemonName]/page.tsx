@@ -13,6 +13,10 @@ import {
   } from "@/components/ui/card"
 import { Badge } from "@/components/ui/badge"
 
+// pokemonName
+
+// pokemonName = "pikachu" -> show detail pikachu page
+
 export default async function PokemonPage({params}: { params: { pokemonName: string}}) {
     //object destructuring
     const { pokemonName } = params;
@@ -30,15 +34,9 @@ export default async function PokemonPage({params}: { params: { pokemonName: str
                 {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
                 </CardTitle>
                 <CardTitle>
-                    {pokemonObject.types[0] ? (
-                    <Badge variant="destructive">
-                        Type: {pokemonObject.types[0].type.name}
-                    </Badge>
-                ) : (
-                    <Badge variant="destructive">
-                        Type: Not Available
-                    </Badge>
-                    )}
+                <Badge variant="destructive">
+                    Type: {pokemonObject.types[0].type.name}
+                </Badge>{" "}
                 </CardTitle>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-2">
                 {/* Kolom Kiri */}
@@ -150,13 +148,13 @@ export default async function PokemonPage({params}: { params: { pokemonName: str
                         <h2 className="mb-4">Sample Dub 1</h2>
                         <audio className=""controls>
                             <source src={pokemonObject.cries.latest} type="audio/ogg" />
-                            Browser anda tidak menudukung pemutaran audio.
+                            Your browser does not support the audio element.
                         </audio>
 
                         <h2 className="mb-4">Sample Dub 2</h2>
                         <audio controls>
                             <source src={pokemonObject.cries.legacy} type="audio/ogg" />
-                            Browser anda tidak menudukung pemutaran audio.
+                            Your browser does not support the audio element.
                         </audio>
                     </div>
                     <div>
