@@ -11,5 +11,7 @@ RUN npm run build --verbose
 
 EXPOSE 3000
 
-CMD ["npm", "start"]
+# CMD ["npm", "start"]
+CMD ["npm", "run", "dev"]
+
  
