@@ -30,7 +30,7 @@ export default async function PokemonPage({params}: { params: { pokemonName: str
             <Card className="mt-6 lg:w-full max-w-5xl">
             <CardHeader>
                 <CardTitle>
-                #{pokemonObject.order}{" "}
+                #{pokemonObject.order}
                 {pokemonName.charAt(0).toUpperCase() + pokemonName.slice(1)}
                 </CardTitle>
                 <CardTitle>
